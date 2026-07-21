@@ -1,0 +1,101 @@
+SwiftShip Courier Service - QA Test Report
+Run date: 2026-06-25
+Scope: Static source QA for courier-service
+
+Summary
+- HTML pages scanned: 17
+- JavaScript files syntax-checked: 2
+- Local links checked: 387
+- Images checked: 23
+- Forms checked: 24
+- Documentation files checked: 3
+
+Checklist Results
+
+[PARTIAL] W3C validated - all pages
+- Official W3C/Nu HTML validation was not run because this environment does not have the validator available for local files.
+- Basic source checks passed: all 17 pages have doctype-style HTML structure, titles, meta descriptions, stylesheet links, and script references.
+
+[PASS] No broken links
+- Internal/local href and src references checked: 387.
+- Broken local files: 0.
+- Broken local anchors: 0.
+- External CDN, Unsplash, social, map, Formspree, and Mailchimp placeholder links were not live-network checked.
+
+[PARTIAL] Responsive all sizes
+- Responsive CSS breakpoints found at 1199px, 1024px, and 767px.
+- Dashboard, grids, nav actions, tables, cards, login/register, and hero sections include responsive rules.
+- Visual viewport testing was not run in real browsers.
+
+[NOT RUN] Tested: Chrome, Firefox, Safari, Edge
+- Browser executables were not available through PATH in this shell session.
+- Safari is not available in this Windows environment.
+- Manual browser QA is still recommended before final delivery.
+
+[PASS] Dark/Light mode toggle works - static implementation
+- Theme toggle controls found on all 17 pages.
+- main.js contains theme toggle logic using localStorage and data-theme.
+- dark-mode.css contains public and dashboard dark mode styles.
+- JavaScript syntax check passed.
+
+[PASS] RTL works - static implementation
+- RTL toggle controls found on all 17 pages.
+- main.js contains direction toggle logic using localStorage and dir.
+- rtl.css contains RTL layout rules.
+- JavaScript syntax check passed.
+
+[PASS] Images: alt + WebP
+- Images checked: 23.
+- Missing alt attributes: 0.
+- Non-WebP image sources: 0.
+- All image URLs use .webp or fm=webp.
+
+[PASS] All forms validated
+- Forms found: 24.
+- Validated forms: 23.
+- Exempt filter form: 1 dashboard history filter.
+- Form issues: 0.
+- Validation is handled through needs-validation, novalidate, data-match, and main.js submit handling.
+
+[PASS] Dashboard skeleton loaders present
+- Skeleton loaders found on:
+  - dashboard-home.html
+  - dashboard-book.html
+  - dashboard-track.html
+  - dashboard-history.html
+- dashboard.js adds dashboard-loaded after loading delay.
+
+[PASS] SEO on public pages; noindex on dashboard pages
+- Public pages have title, description, and robots index,follow.
+- Private/demo pages have robots noindex,nofollow:
+  - login.html
+  - register.html
+  - dashboard-home.html
+  - dashboard-book.html
+  - dashboard-track.html
+  - dashboard-history.html
+
+[PASS] JSON-LD + sitemap.xml + robots.txt
+- JSON-LD found on index.html.
+- sitemap.xml exists and includes 11 public URLs.
+- robots.txt exists and disallows dashboard, login, and register pages.
+
+[PASS] documentation/ complete
+- documentation/ contains:
+  - installation-guide.txt
+  - customization-guide.txt
+  - credits.txt
+- All documentation files are non-empty.
+
+[PASS] No console.log()
+- No console.log() or debugger statements found in project files.
+
+JavaScript Checks
+- node --check assets/js/main.js: PASS
+- node --check assets/js/dashboard.js: PASS
+
+Notes / Recommended Final Manual Checks
+- Run official W3C validation for each HTML page before final submission.
+- Open and test the site manually in Chrome, Edge, Firefox, and Safari if required.
+- Verify responsive layouts visually at mobile, tablet, laptop, and desktop widths.
+- Live-check external assets and placeholder third-party URLs if this project will be deployed publicly.

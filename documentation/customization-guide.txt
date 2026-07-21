@@ -1,0 +1,10 @@
+SwiftShip Courier Service - Customization Guide
+
+- Theme colors live in assets/css/style.css under :root variables.
+- Dark mode overrides live in assets/css/dark-mode.css.
+- RTL layout adjustments live in assets/css/rtl.css and are toggled from the header.
+- Public interactions are in assets/js/main.js.
+- Dashboard interactions are in assets/js/dashboard.js.
+- Tracking search demo parcel IDs are configured in pages/dashboard-track.html.
+- Replace placeholder Formspree, Mailchimp, map, and payment links before production use.
+- Replace remote WebP images with local optimized assets in assets/images if required.

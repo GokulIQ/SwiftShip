@@ -1,0 +1,586 @@
+﻿<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SwiftShip static admin panel for managing courier bookings, shipments, customers, drivers, invoices, support, pricing, coverage, content, reports, and settings.">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Reports | SwiftShip Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Playfair+Display:wght@700;800;900&amp;display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/dark-mode.css" rel="stylesheet">
+  <link href="../assets/css/rtl.css" rel="stylesheet">
+  
+</head>
+<body class="dashboard-page admin-page" data-admin-page="reports">
+<div class="skeleton-screen" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+</div>
+<div class="dashboard-shell">
+
+  <aside class="dashboard-sidebar admin-sidebar" id="dashboardSidebar" aria-label="Admin dashboard">
+    <div class="dashboard-sidebar-head">
+      <a class="brand-mark dashboard-brand" href="index.html">
+        <span class="brand-icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></span>
+        <span>SwiftShip</span>
+      </a>
+      <button class="sidebar-close-button" type="button" data-dashboard-menu aria-label="Close sidebar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <nav>
+      <a href="index.html" data-admin-page-link="overview"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i><span>Overview</span></a>
+      <a href="bookings.html" data-admin-page-link="bookings"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span>Bookings</span></a>
+      <a href="shipments.html" data-admin-page-link="shipments"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i><span>Shipments</span></a>
+      <a href="customers.html" data-admin-page-link="customers"><i class="fa-solid fa-users" aria-hidden="true"></i><span>Customers</span></a>
+      <a href="drivers.html" data-admin-page-link="drivers"><i class="fa-solid fa-id-card" aria-hidden="true"></i><span>Drivers</span></a>
+      <a href="invoices.html" data-admin-page-link="invoices"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i><span>Invoices</span></a>
+      <a href="support.html" data-admin-page-link="support"><i class="fa-solid fa-headset" aria-hidden="true"></i><span>Support</span></a>
+      <a href="services.html" data-admin-page-link="services"><i class="fa-solid fa-tags" aria-hidden="true"></i><span>Services</span></a>
+      <a href="coverage.html" data-admin-page-link="coverage"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i><span>Coverage</span></a>
+      <a href="content.html" data-admin-page-link="content"><i class="fa-solid fa-newspaper" aria-hidden="true"></i><span>Content</span></a>
+      <a class="active" href="reports.html" data-admin-page-link="reports"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span>Reports</span></a>
+      <a href="settings.html" data-admin-page-link="settings"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span>Settings</span></a>
+      <a href="../pages/login.html"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i><span>Logout</span></a>
+    </nav>
+  </aside>
+  <div class="dashboard-content">
+    <header class="dashboard-topbar">
+      <div>
+        <p class="eyebrow">Admin Panel</p>
+        <strong><span data-admin-page-title>Reports</span> Control #ADM-1001</strong>
+      </div>
+      <div class="dashboard-actions">
+        <button class="icon-action" type="button" data-admin-export><i class="fa-solid fa-file-export" aria-hidden="true"></i><span>Export</span></button>
+        <button class="icon-action" type="button" data-theme-toggle aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i><span>Dark</span></button>
+        <button class="icon-action" type="button" data-rtl-toggle aria-label="Switch text direction"><i class="fa-solid fa-align-right" aria-hidden="true"></i><span>RTL</span></button>
+        <div class="notification-menu" data-notification-menu>
+          <button class="topbar-icon-button" type="button" data-notification-toggle aria-label="Notifications" aria-expanded="false" aria-haspopup="true"><i class="fa-solid fa-bell" aria-hidden="true"></i><span class="notification-dot"></span></button>
+          <div class="notification-dropdown" data-notification-dropdown>
+            <div class="notification-head"><strong>Notifications</strong><span>4 new</span></div>
+            <a href="shipments.html"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span><strong>Delayed parcel alert</strong><small>PKG-4388 needs route review</small></span></a>
+            <a href="bookings.html"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span><strong>New pickup request</strong><small>BK-9081 is waiting for assignment</small></span></a>
+            <a href="invoices.html"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i><span><strong>Invoice overdue</strong><small>INV-2218 requires follow-up</small></span></a>
+            <a href="drivers.html"><i class="fa-solid fa-id-card" aria-hidden="true"></i><span><strong>Vehicle inspection</strong><small>Route D van is due today</small></span></a>
+          </div>
+        </div>
+        <div class="profile-menu" data-profile-menu>
+          <button class="profile-toggle" type="button" data-profile-toggle aria-expanded="false" aria-haspopup="true">
+            <span class="profile-avatar admin-avatar" data-profile-avatar>K</span>
+            <span class="profile-copy"><strong data-profile-menu-name>Kiran</strong><small data-profile-menu-role>Super Admin</small></span>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="profile-dropdown" data-profile-dropdown>
+            <a href="settings.html"><i class="fa-solid fa-user" aria-hidden="true"></i><span>Profile</span></a>
+            <a href="settings.html"><i class="fa-solid fa-gear" aria-hidden="true"></i><span>Settings</span></a>
+            <a class="profile-logout" href="../pages/login.html" data-profile-logout><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i><span>Logout</span></a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main id="main" class="dashboard-main">
+
+<section class="dashboard-home-hero admin-hero" id="overview">
+  <div>
+    <p class="eyebrow">Live operations</p>
+    <h1>SwiftShip Admin Panel</h1>
+    <p class="lead-muted">Control bookings, dispatch, customers, drivers, invoices, support, pricing, coverage, reports, and site content from one static demo workspace.</p>
+  </div>
+  <div class="dashboard-hero-actions" aria-label="Admin shortcuts">
+    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#newBookingModal"><i class="fa-solid fa-plus" aria-hidden="true"></i> New Booking</button>
+    <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#dispatchModal"><i class="fa-solid fa-route" aria-hidden="true"></i> Assign Driver</button>
+  </div>
+</section>
+
+<p class="form-message admin-global-message" data-admin-status-message role="status" aria-live="polite"></p>
+
+<section class="dashboard-metrics" aria-label="Admin summary">
+  <article class="metric-card"><span><i class="fa-solid fa-box" aria-hidden="true"></i></span><div><strong>128</strong><p>Total shipments</p></div></article>
+  <article class="metric-card"><span><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></span><div><strong>24</strong><p>Out for delivery</p></div></article>
+  <article class="metric-card"><span><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i></span><div><strong>7</strong><p>Delayed parcels</p></div></article>
+  <article class="metric-card"><span><i class="fa-solid fa-indian-rupee-sign" aria-hidden="true"></i></span><div><strong>&#8377;8.4k</strong><p>Month revenue</p></div></article>
+</section>
+
+<div class="admin-overview-grid">
+  <section class="dashboard-card">
+    <div class="dashboard-section-head">
+      <div>
+        <p class="eyebrow">Dispatch queue</p>
+        <h2>Today&apos;s workload</h2>
+      </div>
+      <span class="status-badge in-transit">Live</span>
+    </div>
+    <div class="admin-route-board">
+      <article>
+        <span>Route A</span>
+        <strong>Central + Market Street</strong>
+        <p>8 stops, 2 priority parcels, driver Maya Stone.</p>
+        <div class="progress-steps" aria-hidden="true"><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span></div>
+      </article>
+      <article>
+        <span>Route B</span>
+        <strong>Harbour + Dockside</strong>
+        <p>11 stops, 1 return, driver Omar Khan.</p>
+        <div class="progress-steps" aria-hidden="true"><span class="active"></span><span class="active"></span><span></span><span></span><span></span></div>
+      </article>
+      <article>
+        <span>Route C</span>
+        <strong>Elm Avenue + Museum Lane</strong>
+        <p>6 stops, all standard service, driver Lena Brooks.</p>
+        <div class="progress-steps" aria-hidden="true"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>
+      </article>
+    </div>
+  </section>
+  <section class="dashboard-card">
+    <div class="dashboard-section-head">
+      <div>
+        <p class="eyebrow">Alerts</p>
+        <h2>Needs attention</h2>
+      </div>
+      <i class="fa-solid fa-bell" aria-hidden="true"></i>
+    </div>
+    <ul class="admin-alert-list">
+      <li><span class="status-badge out-for-delivery">Delay</span><strong>PKG-4412</strong><p>Traffic hold near Elm Avenue.</p></li>
+      <li><span class="status-badge pending">Payment</span><strong>INV-2218</strong><p>Business account invoice overdue.</p></li>
+      <li><span class="status-badge in-transit">Driver</span><strong>Route D</strong><p>Vehicle inspection due before evening dispatch.</p></li>
+    </ul>
+  </section>
+</div>
+
+<section class="dashboard-card admin-section" id="bookings">
+  <div class="dashboard-section-head">
+    <div>
+      <p class="eyebrow">Pickup requests</p>
+      <h2>Booking Management</h2>
+    </div>
+    <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#newBookingModal"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add Booking</button>
+  </div>
+  <form class="admin-filter-grid" data-admin-filter="bookingsTable">
+    <div><label class="form-label" for="bookingSearch">Search</label><input class="form-control" id="bookingSearch" type="search" placeholder="Booking, customer, area" data-admin-search></div>
+    <div><label class="form-label" for="bookingStatus">Status</label><select class="form-select" id="bookingStatus" data-admin-status><option value="all">All statuses</option><option value="pending">Pending</option><option value="confirmed">Confirmed</option><option value="assigned">Assigned</option><option value="cancelled">Cancelled</option></select></div>
+    <div><label class="form-label" for="bookingService">Service</label><select class="form-select" id="bookingService" data-admin-service><option value="all">All services</option><option value="standard">Standard</option><option value="express">Express</option><option value="business">Business</option><option value="returns">Returns</option></select></div>
+  </form>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle" id="bookingsTable">
+      <thead><tr><th>Booking #</th><th>Customer</th><th>Pickup</th><th>Drop-off</th><th>Slot</th><th>Service</th><th>Status</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr data-admin-row data-status="pending" data-service="express" data-search="BK-9081 Jordan Carter Central Delivery District Market Street"><td><strong>BK-9081</strong></td><td>Jordan Carter</td><td>Central Delivery District</td><td>Market Street</td><td>Today 15:00</td><td>Express</td><td><span class="status-badge pending">Pending</span></td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Booking BK-9081" data-detail="Express pickup for Jordan Carter from Central Delivery District to Market Street. Needs driver assignment.">Open</button></td></tr>
+        <tr data-admin-row data-status="assigned" data-service="standard" data-search="BK-9074 Priya Shah North Shop Harbour Road"><td><strong>BK-9074</strong></td><td>Priya Shah</td><td>North Shop</td><td>Harbour Road</td><td>Today 12:00</td><td>Standard</td><td><span class="status-badge in-transit">Assigned</span></td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Booking BK-9074" data-detail="Standard pickup assigned to Omar Khan for Harbour Road delivery.">Open</button></td></tr>
+        <tr data-admin-row data-status="confirmed" data-service="business" data-search="BK-9068 Northwind Studio Depot Station Road"><td><strong>BK-9068</strong></td><td>Northwind Studio</td><td>Depot</td><td>Station Road</td><td>Tomorrow 09:00</td><td>Business</td><td><span class="status-badge delivered">Confirmed</span></td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Booking BK-9068" data-detail="Business delivery confirmed with pay-later invoice terms.">Open</button></td></tr>
+        <tr data-admin-row data-status="cancelled" data-service="returns" data-search="BK-9055 Liam Hunt Retail Desk High Street"><td><strong>BK-9055</strong></td><td>Liam Hunt</td><td>Retail Desk</td><td>High Street</td><td>Yesterday 16:00</td><td>Returns</td><td><span class="status-badge cancelled">Cancelled</span></td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Booking BK-9055" data-detail="Customer cancelled return pickup before dispatch.">Open</button></td></tr>
+        <tr data-admin-empty hidden><td colspan="8">No bookings match your search.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="dashboard-card admin-section" id="shipments">
+  <div class="dashboard-section-head">
+    <div>
+      <p class="eyebrow">Parcel control</p>
+      <h2>Shipment Management</h2>
+    </div>
+    <button class="btn btn-outline-primary btn-sm" type="button" data-admin-bulk-update><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i> Bulk Update</button>
+  </div>
+  <form class="admin-filter-grid" data-admin-filter="shipmentsTable">
+    <div><label class="form-label" for="shipmentSearch">Search</label><input class="form-control" id="shipmentSearch" type="search" placeholder="Parcel, customer, route" data-admin-search></div>
+    <div><label class="form-label" for="shipmentStatus">Status</label><select class="form-select" id="shipmentStatus" data-admin-status><option value="all">All statuses</option><option value="collected">Collected</option><option value="in-transit">In Transit</option><option value="out-for-delivery">Out for Delivery</option><option value="delivered">Delivered</option><option value="delayed">Delayed</option></select></div>
+    <div><label class="form-label" for="shipmentService">Service</label><select class="form-select" id="shipmentService" data-admin-service><option value="all">All services</option><option value="standard">Standard</option><option value="express">Express</option><option value="business">Business</option><option value="returns">Returns</option></select></div>
+  </form>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle" id="shipmentsTable">
+      <thead><tr><th>Parcel #</th><th>Route</th><th>Driver</th><th>Weight</th><th>Service</th><th>Status</th><th>Tracking</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr data-admin-row data-status="out-for-delivery" data-service="express" data-search="PKG-4421 Central Market Street Maya Stone"><td><strong>PKG-4421</strong></td><td>Central to Market Street</td><td>Maya Stone</td><td>3.2 kg</td><td>Express</td><td><span class="status-badge out-for-delivery">Out for Delivery</span></td><td>ETA 16:30</td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Shipment PKG-4421" data-detail="Current scan: loaded on van, final mile. Customer notifications enabled.">Track</button></td></tr>
+        <tr data-admin-row data-status="in-transit" data-service="standard" data-search="PKG-4412 Warehouse Elm Avenue Omar Khan"><td><strong>PKG-4412</strong></td><td>Warehouse to Elm Avenue</td><td>Omar Khan</td><td>2.1 kg</td><td>Standard</td><td><span class="status-badge in-transit">In Transit</span></td><td>Hub scan</td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Shipment PKG-4412" data-detail="Current scan: sorted at local hub. Delay risk: traffic near Elm Avenue.">Track</button></td></tr>
+        <tr data-admin-row data-status="delivered" data-service="standard" data-search="PKG-4418 North Shop Harbour Road Lena Brooks"><td><strong>PKG-4418</strong></td><td>North Shop to Harbour Road</td><td>Lena Brooks</td><td>1.4 kg</td><td>Standard</td><td><span class="status-badge delivered">Delivered</span></td><td>Signed</td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Shipment PKG-4418" data-detail="Delivered and signed by A. Morgan at Harbour Road reception.">Track</button></td></tr>
+        <tr data-admin-row data-status="delayed" data-service="business" data-search="PKG-4388 Depot Station Road Maya Stone"><td><strong>PKG-4388</strong></td><td>Depot to Station Road</td><td>Maya Stone</td><td>8.7 kg</td><td>Business</td><td><span class="status-badge out-for-delivery">Delayed</span></td><td>Rescheduled</td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Shipment PKG-4388" data-detail="Business parcel delayed by vehicle capacity. Rescheduled for first morning route.">Track</button></td></tr>
+        <tr data-admin-empty hidden><td colspan="8">No shipments match your search.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="dashboard-card admin-section" id="customers">
+  <div class="dashboard-section-head">
+    <div>
+      <p class="eyebrow">Accounts</p>
+      <h2>Customer Management</h2>
+    </div>
+    <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#customerModal"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Add Customer</button>
+  </div>
+  <div class="admin-card-grid">
+    <article class="admin-mini-card"><i class="fa-solid fa-user-check" aria-hidden="true"></i><strong>842</strong><span>Active customers</span></article>
+    <article class="admin-mini-card"><i class="fa-solid fa-building" aria-hidden="true"></i><strong>64</strong><span>Business accounts</span></article>
+    <article class="admin-mini-card"><i class="fa-solid fa-address-book" aria-hidden="true"></i><strong>1,926</strong><span>Saved addresses</span></article>
+  </div>
+  <form class="admin-filter-grid" data-admin-filter="customersTable">
+    <div><label class="form-label" for="customerSearch">Search</label><input class="form-control" id="customerSearch" type="search" placeholder="Customer, email, parcel" data-admin-search></div>
+    <div><label class="form-label" for="customerType">Type</label><select class="form-select" id="customerType" data-admin-type><option value="all">All types</option><option value="personal">Personal</option><option value="business">Business</option></select></div>
+    <div><label class="form-label" for="customerStatus">Status</label><select class="form-select" id="customerStatus" data-admin-status><option value="all">All statuses</option><option value="active">Active</option><option value="credit">Credit</option></select></div>
+  </form>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle" id="customersTable">
+      <thead><tr><th>Customer</th><th>Email</th><th>Type</th><th>Shipments</th><th>Balance</th><th>Status</th><th>Action</th></tr></thead>
+      <tbody data-customer-rows>
+        <tr data-admin-row data-type="personal" data-status="active" data-search="Jordan Carter demo@swiftship.test Personal PKG-4421 pending invoices"><td><strong>Jordan Carter</strong></td><td>demo@swiftship.test</td><td>Personal</td><td>22</td><td>&#8377;42.00</td><td><span class="status-badge delivered">Active</span></td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Jordan Carter" data-detail="Demo customer with active parcel PKG-4421 and two pending invoices.">Profile</button></td></tr>
+        <tr data-admin-row data-type="business" data-status="credit" data-search="Northwind Studio ops@northwind.test Business PKG-4388 monthly invoicing priority pickup"><td><strong>Northwind Studio</strong></td><td>ops@northwind.test</td><td>Business</td><td>108</td><td>&#8377;218.40</td><td><span class="status-badge in-transit">Credit</span></td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Northwind Studio" data-detail="Business customer with monthly invoicing and priority pickup notes.">Profile</button></td></tr>
+        <tr data-admin-row data-type="personal" data-status="active" data-search="Priya Shah priya@example.test Personal North Shop Standard"><td><strong>Priya Shah</strong></td><td>priya@example.test</td><td>Personal</td><td>9</td><td>&#8377;0.00</td><td><span class="status-badge delivered">Active</span></td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Priya Shah" data-detail="Saved pickup: North Shop. Preferred service: Standard.">Profile</button></td></tr>
+        <tr data-admin-empty hidden><td colspan="7">No customers match your search.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="dashboard-card admin-section" id="drivers">
+  <div class="dashboard-section-head">
+    <div>
+      <p class="eyebrow">Fleet</p>
+      <h2>Driver & Vehicle Management</h2>
+    </div>
+    <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#dispatchModal"><i class="fa-solid fa-route" aria-hidden="true"></i> Dispatch</button>
+  </div>
+  <form class="admin-filter-grid" data-admin-filter="driversGrid">
+    <div><label class="form-label" for="driverSearch">Search</label><input class="form-control" id="driverSearch" type="search" placeholder="Driver, vehicle, route" data-admin-search></div>
+    <div><label class="form-label" for="driverStatus">Status</label><select class="form-select" id="driverStatus" data-admin-status><option value="all">All statuses</option><option value="available">Available</option><option value="busy">Busy</option><option value="offline">Offline</option></select></div>
+  </form>
+  <div class="admin-driver-grid" id="driversGrid">
+    <article class="admin-driver-card" data-admin-row data-status="available" data-search="Maya Stone Van SS-104 Route A 8 stops available"><div><span class="status-dot available"></span><strong>Maya Stone</strong><p>Van SS-104 | Route A</p></div><span class="status-badge in-transit">8 stops</span></article>
+    <article class="admin-driver-card" data-admin-row data-status="busy" data-search="Omar Khan Bike SS-219 Route B 11 stops busy"><div><span class="status-dot busy"></span><strong>Omar Khan</strong><p>Bike SS-219 | Route B</p></div><span class="status-badge out-for-delivery">11 stops</span></article>
+    <article class="admin-driver-card" data-admin-row data-status="available" data-search="Lena Brooks Van SS-122 Route C 6 stops available"><div><span class="status-dot available"></span><strong>Lena Brooks</strong><p>Van SS-122 | Route C</p></div><span class="status-badge delivered">6 stops</span></article>
+    <article class="admin-driver-card" data-admin-row data-status="offline" data-search="Evan Cole Van SS-090 Inspection offline"><div><span class="status-dot offline"></span><strong>Evan Cole</strong><p>Van SS-090 | Inspection</p></div><span class="status-badge pending">Offline</span></article>
+    <p class="admin-empty-state" data-admin-empty hidden>No drivers match your search.</p>
+  </div>
+</section>
+
+<section class="dashboard-card admin-section" id="invoices">
+  <div class="dashboard-section-head">
+    <div>
+      <p class="eyebrow">Billing</p>
+      <h2>Invoices & Payments</h2>
+    </div>
+    <button class="btn btn-outline-primary btn-sm" type="button" data-admin-payment-run><i class="fa-solid fa-credit-card" aria-hidden="true"></i> Payment Run</button>
+  </div>
+  <form class="admin-filter-grid" data-admin-filter="invoicesTable">
+    <div><label class="form-label" for="invoiceSearch">Search</label><input class="form-control" id="invoiceSearch" type="search" placeholder="Invoice, customer, parcel" data-admin-search></div>
+    <div><label class="form-label" for="invoiceStatus">Payment</label><select class="form-select" id="invoiceStatus" data-admin-status><option value="all">All payments</option><option value="due">Due</option><option value="paid">Paid</option></select></div>
+  </form>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle" id="invoicesTable">
+      <thead><tr><th>Invoice #</th><th>Customer</th><th>Parcel</th><th>Date</th><th>Amount</th><th>Payment</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr data-admin-row data-status="due" data-search="INV-2218 Northwind Studio PKG-4388 2026-06-14 due business monthly"><td><strong>INV-2218</strong></td><td>Northwind Studio</td><td>PKG-4388</td><td>2026-06-14</td><td>&#8377;218.40</td><td><span class="status-badge pending">Due</span></td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Invoice INV-2218" data-detail="Monthly business invoice. Payment placeholder: Stripe or PayPal integration can be connected here.">View</button></td></tr>
+        <tr data-admin-row data-status="paid" data-search="INV-2217 Jordan Carter PKG-4421 2026-06-25 paid receipt"><td><strong>INV-2217</strong></td><td>Jordan Carter</td><td>PKG-4421</td><td>2026-06-25</td><td>&#8377;10.99</td><td><span class="status-badge delivered">Paid</span></td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Invoice INV-2217" data-detail="Paid through saved card placeholder. Receipt ready for customer dashboard.">View</button></td></tr>
+        <tr data-admin-row data-status="paid" data-search="INV-2216 Priya Shah PKG-4418 2026-06-22 paid delivery confirmation"><td><strong>INV-2216</strong></td><td>Priya Shah</td><td>PKG-4418</td><td>2026-06-22</td><td>&#8377;7.99</td><td><span class="status-badge delivered">Paid</span></td><td><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Invoice INV-2216" data-detail="Paid invoice with delivery confirmation attached.">View</button></td></tr>
+        <tr data-admin-empty hidden><td colspan="7">No invoices match your search.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="dashboard-card admin-section" id="support">
+  <div class="dashboard-section-head">
+    <div>
+      <p class="eyebrow">Inbox</p>
+      <h2>Support & Messages</h2>
+    </div>
+    <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#messageModal"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send Message</button>
+  </div>
+  <form class="admin-filter-grid" data-admin-filter="supportGrid">
+    <div><label class="form-label" for="supportSearch">Search</label><input class="form-control" id="supportSearch" type="search" placeholder="Ticket, parcel, topic" data-admin-search></div>
+    <div><label class="form-label" for="supportStatus">Status</label><select class="form-select" id="supportStatus" data-admin-status><option value="all">All statuses</option><option value="urgent">Urgent</option><option value="open">Open</option><option value="solved">Solved</option></select></div>
+  </form>
+  <div class="admin-ticket-grid" id="supportGrid">
+    <article data-admin-row data-status="urgent" data-search="urgent where is PKG-4412 updated ETA delay notice"><span class="status-badge out-for-delivery">Urgent</span><strong>Where is PKG-4412?</strong><p>Customer asks for updated ETA after delay notice.</p><button class="btn btn-outline-primary btn-sm" type="button" data-admin-ticket>Reply</button></article>
+    <article data-admin-row data-status="open" data-search="open address correction recipient moved Dockside Harbour Road reception"><span class="status-badge pending">Open</span><strong>Address correction</strong><p>Recipient moved from Dockside to Harbour Road reception.</p><button class="btn btn-outline-primary btn-sm" type="button" data-admin-ticket>Reply</button></article>
+    <article data-admin-row data-status="solved" data-search="solved proof of delivery business signed POD PDF placeholder"><span class="status-badge delivered">Solved</span><strong>Proof of delivery</strong><p>Business account requested signed POD PDF placeholder.</p><button class="btn btn-outline-primary btn-sm" type="button" data-admin-ticket>Open</button></article>
+    <p class="admin-empty-state" data-admin-empty hidden>No support tickets match your search.</p>
+  </div>
+</section>
+
+<section class="dashboard-card admin-section" id="services">
+  <div class="dashboard-section-head">
+    <div>
+      <p class="eyebrow">Catalogue</p>
+      <h2>Services, Pricing & Coupons</h2>
+    </div>
+    <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#serviceModal"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Edit Pricing</button>
+  </div>
+  <form class="admin-filter-grid" data-admin-filter="servicesGrid">
+    <div><label class="form-label" for="serviceSearch">Search</label><input class="form-control" id="serviceSearch" type="search" placeholder="Service, price, feature" data-admin-search></div>
+    <div><label class="form-label" for="serviceType">Service</label><select class="form-select" id="serviceType" data-admin-service><option value="all">All services</option><option value="standard">Standard</option><option value="express">Express</option><option value="business">Business</option><option value="returns">Returns</option></select></div>
+  </form>
+  <div class="admin-pricing-grid" id="servicesGrid">
+    <article data-admin-row data-service="standard" data-search="Standard From INR 5.49 Same-city parcel delivery next-day target"><i class="fa-solid fa-box" aria-hidden="true"></i><h3>Standard</h3><strong>From &#8377;5.49</strong><p>Same-city parcel delivery with next-day target.</p></article>
+    <article data-admin-row data-service="express" data-search="Express From INR 8.99 Priority collection route alerts same-day ETA"><i class="fa-solid fa-bolt" aria-hidden="true"></i><h3>Express</h3><strong>From &#8377;8.99</strong><p>Priority collection, route alerts, and same-day ETA.</p></article>
+    <article data-admin-row data-service="business" data-search="Business Custom Monthly billing saved routes volume dispatch"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><h3>Business</h3><strong>Custom</strong><p>Monthly billing, saved routes, and volume dispatch.</p></article>
+    <article data-admin-row data-service="returns" data-search="Returns From INR 4.99 Customer returns label-free pickup"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i><h3>Returns</h3><strong>From &#8377;4.99</strong><p>Customer returns with simple label-free pickup.</p></article>
+    <p class="admin-empty-state" data-admin-empty hidden>No services match your search.</p>
+  </div>
+</section>
+
+<section class="dashboard-card admin-section" id="coverage">
+  <div class="dashboard-section-head">
+    <div>
+      <p class="eyebrow">Service area</p>
+      <h2>Coverage & Zones</h2>
+    </div>
+    <button class="btn btn-outline-primary btn-sm" type="button" data-admin-zone-toggle><i class="fa-solid fa-map-pin" aria-hidden="true"></i> Toggle Zone</button>
+  </div>
+  <div class="admin-coverage-layout">
+    <div class="admin-zone-map" aria-label="Static coverage zone map">
+      <span class="zone zone-a">A</span>
+      <span class="zone zone-b">B</span>
+      <span class="zone zone-c">C</span>
+      <span class="zone zone-d">D</span>
+    </div>
+    <form class="admin-zone-form" data-admin-zone-form>
+      <label class="form-label" for="zonePostcode">Check postcode</label>
+      <div class="input-group">
+        <input class="form-control" id="zonePostcode" placeholder="SW1A 1AA" required>
+        <button class="btn btn-primary" type="submit">Check</button>
+      </div>
+      <p class="form-message" role="status" aria-live="polite"></p>
+      <div class="admin-inline-filter" data-admin-filter="coverageZones">
+        <label class="form-label mt-3" for="zoneSearch">Search zones</label>
+        <input class="form-control" id="zoneSearch" type="search" placeholder="Zone, street, postcode area" data-admin-search>
+      </div>
+      <dl class="profile-list mt-3" id="coverageZones">
+        <div data-admin-row data-search="Zone A Central Market Street Museum Lane"><dt>Zone A</dt><dd>Central, Market Street, Museum Lane</dd></div>
+        <div data-admin-row data-search="Zone B Harbour Road Dockside Canal Road"><dt>Zone B</dt><dd>Harbour Road, Dockside, Canal Road</dd></div>
+        <div data-admin-row data-search="Zone C Elm Avenue Oak Close High Street"><dt>Zone C</dt><dd>Elm Avenue, Oak Close, High Street</dd></div>
+        <div data-admin-empty hidden><dt>No zones</dt><dd>No coverage zones match your search.</dd></div>
+      </dl>
+    </form>
+  </div>
+</section>
+
+<section class="dashboard-card admin-section" id="content">
+  <div class="dashboard-section-head">
+    <div>
+      <p class="eyebrow">Website</p>
+      <h2>Content & CMS</h2>
+    </div>
+    <button class="btn btn-primary btn-sm" type="button" data-admin-save-content><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Save Draft</button>
+  </div>
+  <form class="admin-filter-grid" data-admin-filter="contentGrid">
+    <div><label class="form-label" for="contentSearch">Search</label><input class="form-control" id="contentSearch" type="search" placeholder="Page, draft, SEO" data-admin-search></div>
+    <div><label class="form-label" for="contentType">Type</label><select class="form-select" id="contentType" data-admin-type><option value="all">All content</option><option value="home">Home</option><option value="blog">Blog</option><option value="seo">SEO</option></select></div>
+  </form>
+  <div class="admin-content-grid" id="contentGrid">
+    <article data-admin-row data-type="home" data-search="Home Hero CTA homepage value prop quote form text"><span class="badge-soft">Home</span><h3>Hero CTA</h3><p>Manage public homepage value prop and quote form text.</p><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Homepage Content" data-detail="Homepage content placeholder: edit hero text, CTA labels, trust badges, and quote form copy.">Edit</button></article>
+    <article data-admin-row data-type="blog" data-search="Blog Delivery Tips draft post waiting review category publish date SEO title excerpt"><span class="badge-soft">Blog</span><h3>Delivery Tips</h3><p>Draft post waiting for admin review.</p><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="Blog Draft" data-detail="Blog placeholder: review draft, category, publish date, SEO title, and excerpt.">Review</button></article>
+    <article data-admin-row data-type="seo" data-search="SEO Metadata page titles descriptions robots sitemap canonical schema priority"><span class="badge-soft">SEO</span><h3>Metadata</h3><p>Page titles, descriptions, robots, and sitemap notes.</p><button class="btn btn-outline-primary btn-sm" type="button" data-admin-detail data-title="SEO Settings" data-detail="SEO placeholder: update meta title, description, canonical URL, schema, and sitemap priority.">Open</button></article>
+    <p class="admin-empty-state" data-admin-empty hidden>No content items match your search.</p>
+  </div>
+</section>
+
+<section class="dashboard-card admin-section" id="reports">
+  <div class="dashboard-section-head">
+    <div>
+      <p class="eyebrow">Analytics</p>
+      <h2>Reports & Insights</h2>
+    </div>
+    <button class="btn btn-outline-primary btn-sm" type="button" data-admin-export><i class="fa-solid fa-download" aria-hidden="true"></i> Export CSV</button>
+  </div>
+  <form class="admin-filter-grid" data-admin-filter="reportsGrid">
+    <div><label class="form-label" for="reportSearch">Search</label><input class="form-control" id="reportSearch" type="search" placeholder="Report, metric, service" data-admin-search></div>
+    <div><label class="form-label" for="reportType">Report</label><select class="form-select" id="reportType" data-admin-type><option value="all">All reports</option><option value="volume">Volume</option><option value="mix">Service mix</option><option value="performance">Performance</option></select></div>
+  </form>
+  <div class="admin-report-grid" id="reportsGrid">
+    <article data-admin-row data-type="volume" data-search="Shipment volume Monday Tuesday Wednesday Thursday Friday daily shipments">
+      <h3>Shipment volume</h3>
+      <div class="admin-bar-chart" aria-label="Shipment volume by day">
+        <span style="--bar-height: 62%"><b>Mon</b></span>
+        <span style="--bar-height: 78%"><b>Tue</b></span>
+        <span style="--bar-height: 54%"><b>Wed</b></span>
+        <span style="--bar-height: 88%"><b>Thu</b></span>
+        <span style="--bar-height: 70%"><b>Fri</b></span>
+      </div>
+    </article>
+    <article data-admin-row data-type="mix" data-search="Service mix Standard 48 Express 31 Business 16 Returns 5">
+      <h3>Service mix</h3>
+      <dl class="profile-list">
+        <div><dt>Standard</dt><dd>48%</dd></div>
+        <div><dt>Express</dt><dd>31%</dd></div>
+        <div><dt>Business</dt><dd>16%</dd></div>
+        <div><dt>Returns</dt><dd>5%</dd></div>
+      </dl>
+    </article>
+    <article data-admin-row data-type="performance" data-search="Performance on-time delivery average delivery time open support tickets">
+      <h3>Performance</h3>
+      <dl class="profile-list">
+        <div><dt>On-time delivery</dt><dd>94.2%</dd></div>
+        <div><dt>Average delivery time</dt><dd>4h 18m</dd></div>
+        <div><dt>Open support tickets</dt><dd>12</dd></div>
+      </dl>
+    </article>
+    <p class="admin-empty-state" data-admin-empty hidden>No reports match your search.</p>
+  </div>
+</section>
+
+<section class="dashboard-card admin-section" id="settings">
+  <div class="dashboard-section-head">
+    <div>
+      <p class="eyebrow">Control room</p>
+      <h2>Admin Settings, Roles & Security</h2>
+    </div>
+    <button class="btn btn-primary btn-sm" type="button" data-admin-save-settings><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Save Settings</button>
+  </div>
+  <div class="admin-settings-grid">
+    <form class="admin-settings-panel">
+      <h3>General</h3>
+      <div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="autoAssign" checked><label class="form-check-label" for="autoAssign">Auto-assign drivers</label></div>
+      <div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="smsAlerts" checked><label class="form-check-label" for="smsAlerts">Send SMS delivery alerts</label></div>
+      <div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="maintenanceMode"><label class="form-check-label" for="maintenanceMode">Maintenance mode</label></div>
+      <label class="form-label mt-3" for="defaultCurrency">Currency</label>
+      <select class="form-select" id="defaultCurrency"><option>INR</option></select>
+    </form>
+    <div class="admin-settings-panel">
+      <h3>Roles</h3>
+      <div class="admin-inline-filter" data-admin-filter="settingsList">
+        <label class="form-label" for="settingsSearch">Search settings</label>
+        <input class="form-control" id="settingsSearch" type="search" placeholder="Role, permission, audit" data-admin-search>
+      </div>
+      <dl class="profile-list mt-3" id="settingsList">
+        <div data-admin-row data-search="Super Admin Full access billing settings"><dt>Super Admin</dt><dd>Full access, billing, settings</dd></div>
+        <div data-admin-row data-search="Dispatcher Bookings shipments drivers"><dt>Dispatcher</dt><dd>Bookings, shipments, drivers</dd></div>
+        <div data-admin-row data-search="Support Agent Customers tickets messages"><dt>Support Agent</dt><dd>Customers, tickets, messages</dd></div>
+        <div data-admin-empty hidden><dt>No settings</dt><dd>No roles match your search.</dd></div>
+      </dl>
+    </div>
+    <div class="admin-settings-panel">
+      <h3>Audit Log</h3>
+      <ul class="admin-audit-list">
+        <li><strong>10:42</strong><span>Maya assigned to PKG-4421</span></li>
+        <li><strong>10:17</strong><span>Pricing draft saved</span></li>
+        <li><strong>09:56</strong><span>Invoice INV-2217 marked paid</span></li>
+      </ul>
+    </div>
+  </div>
+  <p class="form-message" role="status" aria-live="polite"></p>
+</section>
+
+<div class="modal fade" id="adminDetailModal" tabindex="-1" aria-labelledby="adminDetailLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title fs-4" id="adminDetailLabel">Admin detail</h2><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body"><p data-admin-detail-body></p></div>
+      <div class="modal-footer"><button class="btn btn-outline-primary" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button" data-admin-modal-save>Save Change</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="newBookingModal" tabindex="-1" aria-labelledby="newBookingLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title fs-4" id="newBookingLabel">Create Booking</h2><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <form class="needs-validation" data-admin-create-booking novalidate>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label" for="adminCustomer">Customer</label><input class="form-control" id="adminCustomer" required><div class="invalid-feedback">Customer is required.</div></div>
+            <div class="col-md-6"><label class="form-label" for="adminService">Service</label><select class="form-select" id="adminService" required><option value="">Choose service</option><option>Standard</option><option>Express</option><option>Business</option><option>Returns</option></select><div class="invalid-feedback">Choose a service.</div></div>
+            <div class="col-md-6"><label class="form-label" for="adminPickup">Pickup</label><input class="form-control" id="adminPickup" required><div class="invalid-feedback">Pickup is required.</div></div>
+            <div class="col-md-6"><label class="form-label" for="adminDropoff">Drop-off</label><input class="form-control" id="adminDropoff" required><div class="invalid-feedback">Drop-off is required.</div></div>
+            <div class="col-md-6"><label class="form-label" for="adminSlot">Pickup slot</label><input class="form-control" id="adminSlot" placeholder="Today 15:00" required><div class="invalid-feedback">Slot is required.</div></div>
+            <div class="col-md-6"><label class="form-label" for="adminWeight">Weight</label><input class="form-control" id="adminWeight" placeholder="2.5 kg" required><div class="invalid-feedback">Weight is required.</div></div>
+          </div>
+          <p class="form-message" role="status" aria-live="polite"></p>
+        </div>
+        <div class="modal-footer"><button class="btn btn-outline-primary" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="submit">Create Demo Booking</button></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="dispatchModal" tabindex="-1" aria-labelledby="dispatchLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title fs-4" id="dispatchLabel">Assign Driver</h2><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <form class="needs-validation" data-admin-dispatch novalidate>
+        <div class="modal-body">
+          <label class="form-label" for="dispatchParcel">Parcel</label>
+          <select class="form-select mb-3" id="dispatchParcel" required><option value="">Choose parcel</option><option>PKG-4421</option><option>PKG-4412</option><option>PKG-4388</option></select>
+          <label class="form-label" for="dispatchDriver">Driver</label>
+          <select class="form-select mb-3" id="dispatchDriver" required><option value="">Choose driver</option><option>Maya Stone</option><option>Omar Khan</option><option>Lena Brooks</option></select>
+          <label class="form-label" for="dispatchNote">Dispatch note</label>
+          <textarea class="form-control" id="dispatchNote" rows="3" placeholder="Priority, access code, customer note"></textarea>
+          <p class="form-message" role="status" aria-live="polite"></p>
+        </div>
+        <div class="modal-footer"><button class="btn btn-outline-primary" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="submit">Assign Driver</button></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="customerLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title fs-4" id="customerLabel">Add Customer</h2><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <form class="needs-validation" data-admin-add-customer novalidate>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label" for="customerName">Name</label><input class="form-control" id="customerName" required><div class="invalid-feedback">Name is required.</div></div>
+            <div class="col-md-6"><label class="form-label" for="customerEmail">Email</label><input class="form-control" id="customerEmail" type="email" required><div class="invalid-feedback">Valid email is required.</div></div>
+            <div class="col-12"><label class="form-label" for="customerAddress">Default address</label><textarea class="form-control" id="customerAddress" rows="3" required></textarea><div class="invalid-feedback">Address is required.</div></div>
+          </div>
+          <p class="form-message" role="status" aria-live="polite"></p>
+        </div>
+        <div class="modal-footer"><button class="btn btn-outline-primary" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="submit">Add Demo Customer</button></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title fs-4" id="messageLabel">Send Message</h2><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <form class="needs-validation" data-admin-message novalidate>
+        <div class="modal-body">
+          <label class="form-label" for="messageTo">Recipient</label>
+          <input class="form-control mb-3" id="messageTo" required>
+          <label class="form-label" for="messageBody">Message</label>
+          <textarea class="form-control" id="messageBody" rows="4" required></textarea>
+          <p class="form-message" role="status" aria-live="polite"></p>
+        </div>
+        <div class="modal-footer"><button class="btn btn-outline-primary" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="submit">Send Demo Message</button></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title fs-4" id="serviceLabel">Edit Pricing</h2><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <form class="needs-validation" data-admin-service-pricing novalidate>
+        <div class="modal-body">
+          <label class="form-label" for="pricingService">Service</label>
+          <select class="form-select mb-3" id="pricingService" required><option value="">Choose service</option><option>Standard</option><option>Express</option><option>Business</option><option>Returns</option></select>
+          <label class="form-label" for="basePrice">Base price</label>
+          <input class="form-control mb-3" id="basePrice" type="number" min="0" step="0.01" required>
+          <label class="form-label" for="couponCode">Coupon code</label>
+          <input class="form-control" id="couponCode" placeholder="Optional">
+          <p class="form-message" role="status" aria-live="polite"></p>
+        </div>
+        <div class="modal-footer"><button class="btn btn-outline-primary" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="submit">Save Pricing</button></div>
+      </form>
+    </div>
+  </div>
+</div>
+    </main>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
+
+
+

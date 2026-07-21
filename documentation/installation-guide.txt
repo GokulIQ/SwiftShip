@@ -1,0 +1,8 @@
+SwiftShip Courier Service - Installation Guide
+
+1. Open the courier-service folder.
+2. Start with pages/index.html in a browser, or serve the folder with any static server.
+3. No backend, database, build step, or package installation is required.
+4. Internet access is needed for CDN assets: Bootstrap 5, Font Awesome, Google Fonts, and remote WebP images.
+5. Dashboard pages use static dummy data and noindex meta tags.
+6. Use the dashboard tracking search with PKG-4421 or PKG-4412 to load demo parcel timelines.

@@ -1,0 +1,118 @@
+/* RTL support for Arabic, Urdu, Hebrew, and other right-to-left locales. */
+[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .ms-auto {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+[dir="rtl"] .nav-actions {
+  margin-left: 0;
+  margin-right: 16px;
+}
+
+[dir="rtl"] .dashboard-actions {
+  margin-left: 0;
+  margin-right: 16px;
+}
+
+[dir="rtl"] .profile-toggle {
+  padding: 4px 4px 4px 8px;
+}
+
+[dir="rtl"] .profile-copy {
+  text-align: right;
+}
+
+[dir="rtl"] .profile-dropdown {
+  left: 0;
+  right: auto;
+}
+
+[dir="rtl"] .notification-dropdown {
+  left: 0;
+  right: auto;
+}
+
+[dir="rtl"] .notification-dot {
+  left: 10px;
+  right: auto;
+}
+
+[dir="rtl"] .nav-link::after {
+  left: auto;
+  right: 8px;
+  transform-origin: right;
+}
+
+[dir="rtl"] .service-card,
+[dir="rtl"] .pricing-card,
+[dir="rtl"] .team-card,
+[dir="rtl"] .testimonial-card,
+[dir="rtl"] .blog-card,
+[dir="rtl"] .info-card,
+[dir="rtl"] .summary-card,
+[dir="rtl"] .dashboard-card,
+[dir="rtl"] .auth-card,
+[dir="rtl"] .invoice-card,
+[dir="rtl"] .track-card {
+  border-left: 1px solid var(--color-border);
+  border-right: 4px solid var(--color-primary);
+}
+
+[dir="rtl"] .status-dot {
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+[dir="rtl"] .admin-zone-map .zone-a {
+  left: auto;
+  right: 12%;
+}
+
+[dir="rtl"] .admin-zone-map .zone-b {
+  left: 18%;
+  right: auto;
+}
+
+[dir="rtl"] .admin-zone-map .zone-c {
+  left: auto;
+  right: 22%;
+}
+
+[dir="rtl"] .admin-zone-map .zone-d {
+  left: 14%;
+  right: auto;
+}
+
+[dir="rtl"] .tracking-timeline {
+  border-left: 0;
+  border-right: 3px solid var(--color-border);
+  padding-left: 0;
+  padding-right: 22px;
+}
+
+[dir="rtl"] .timeline-item::before {
+  left: auto;
+  right: -32px;
+}
+
+[dir="rtl"] .dashboard-sidebar a:hover,
+[dir="rtl"] .dashboard-sidebar a.active {
+  transform: translateX(-4px);
+}
+
+@media (max-width: 1024px) {
+  [dir="rtl"] .dashboard-sidebar {
+    left: auto;
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  [dir="rtl"] .dashboard-sidebar.open {
+    transform: translateX(0);
+  }
+}

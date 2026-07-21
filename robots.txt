@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /pages/
+Disallow: /pages/dashboard-
+Disallow: /pages/login.html
+Disallow: /pages/register.html
+Disallow: /pages/coming-soon.html
+
+Sitemap: https://example.com/courier-service/sitemap.xml

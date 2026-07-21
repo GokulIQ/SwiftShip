@@ -1,0 +1,15 @@
+SwiftShip Courier Service - Credits
+
+Frameworks and libraries:
+- Bootstrap 5 via jsDelivr CDN
+- Font Awesome 6 via cdnjs CDN
+- Google Fonts: Barlow and Roboto
+
+Images:
+- Remote demo images are loaded from Unsplash with WebP formatting parameters.
+
+Maps:
+- OpenStreetMap iframe placeholders are used for coverage, contact, and tracking maps.
+
+Project note:
+- This is a static front-end assignment with dummy customer, shipment, invoice, and tracking data.

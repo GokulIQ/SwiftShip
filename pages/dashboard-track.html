@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Track active SwiftShip parcels with search, dummy entries, five-stage vertical timeline, courier details, and map placeholder.">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Track Parcel | SwiftShip Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Playfair+Display:wght@700;800;900&amp;display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/dark-mode.css" rel="stylesheet">
+  <link href="../assets/css/rtl.css" rel="stylesheet">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128230;</text></svg>">
+</head>
+<body class="dashboard-page">
+<div class="skeleton-screen" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+</div>
+<div class="dashboard-shell">
+
+  <aside class="dashboard-sidebar" id="dashboardSidebar" aria-label="Customer dashboard">
+    <div class="dashboard-sidebar-head">
+      <a class="brand-mark dashboard-brand" href="dashboard-home.html">
+        <span class="brand-icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></span>
+        <span>SwiftShip</span>
+      </a>
+      <button class="sidebar-close-button" type="button" data-dashboard-menu aria-label="Close sidebar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <nav>
+      <a class="" href="dashboard-home.html"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i><span>Home</span></a><a class="" href="dashboard-home.html#profile-management"><i class="fa-solid fa-user-gear" aria-hidden="true"></i><span>Profile Management</span></a><a class="" href="dashboard-book.html"><i class="fa-solid fa-calendar-plus" aria-hidden="true"></i><span>Book Pickup</span></a><a class="active" href="dashboard-track.html"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Active Tracking</span></a><a class="" href="dashboard-history.html"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i><span>Shipment History</span></a><a class="" href="dashboard-history.html#invoice-history"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i><span>Invoice History</span></a><a class="" href="dashboard-home.html#saved-addresses"><i class="fa-solid fa-address-book" aria-hidden="true"></i><span>Saved Addresses</span></a><a class="" href="dashboard-home.html#messages"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Messages</span></a><a class="" href="dashboard-home.html#settings"><i class="fa-solid fa-sliders" aria-hidden="true"></i><span>Settings</span></a><a class="" href="login.html"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i><span>Logout</span></a>
+    </nav>
+  </aside>
+  <div class="dashboard-content">
+    <header class="dashboard-topbar">
+      <button class="sidebar-toggle-button dashboard-menu-toggle" type="button" data-dashboard-menu aria-controls="dashboardSidebar" aria-expanded="false" aria-label="Toggle sidebar"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      <div>
+        <p class="eyebrow">Customer Dashboard</p>
+        <strong>Account #CUST-2087</strong>
+      </div>
+      <div class="dashboard-actions">
+        <button class="icon-action" type="button" data-theme-toggle aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i><span>Dark</span></button>
+        <button class="icon-action" type="button" data-rtl-toggle aria-label="Switch text direction"><i class="fa-solid fa-align-right" aria-hidden="true"></i><span>RTL</span></button>
+        <div class="notification-menu" data-notification-menu>
+          <button class="topbar-icon-button" type="button" data-notification-toggle aria-label="Notifications" aria-expanded="false" aria-haspopup="true"><i class="fa-solid fa-bell" aria-hidden="true"></i><span class="notification-dot"></span></button>
+          <div class="notification-dropdown" data-notification-dropdown>
+            <div class="notification-head"><strong>Notifications</strong><span>3 new</span></div>
+            <a href="dashboard-track.html"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i><span><strong>PKG-4421 is out for delivery</strong><small>ETA today at 16:30</small></span></a>
+            <a href="dashboard-book.html"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span><strong>Pickup reminder</strong><small>Express pickup window opens at 15:00</small></span></a>
+            <a href="dashboard-history.html"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i><span><strong>Invoice ready</strong><small>Review your latest delivery receipt</small></span></a>
+          </div>
+        </div>
+        <div class="profile-menu" data-profile-menu>
+          <button class="profile-toggle" type="button" data-profile-toggle aria-expanded="false" aria-haspopup="true">
+            <span class="profile-avatar" data-profile-avatar>JC</span>
+            <span class="profile-copy"><strong data-profile-menu-name>Jordan Carter</strong><small data-profile-menu-role>Customer</small></span>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="profile-dropdown" data-profile-dropdown>
+            <a href="dashboard-home.html#profile-management"><i class="fa-solid fa-user" aria-hidden="true"></i><span>Profile</span></a>
+            <a href="dashboard-home.html#settings"><i class="fa-solid fa-gear" aria-hidden="true"></i><span>Settings</span></a>
+            <a class="profile-logout" href="login.html" data-profile-logout><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i><span>Logout</span></a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main id="main" class="dashboard-main">
+
+<div class="dashboard-title">
+  <div><p class="eyebrow">Track parcel</p><h1>Parcel tracking</h1><p class="lead-muted">Search a parcel ID or select an active shipment to view the static tracking timeline.</p></div>
+</div>
+<section class="dashboard-grid">
+  <div>
+    <form class="dashboard-card mb-4" data-tracking-search novalidate>
+      <label class="form-label" for="trackingSearch">Enter Parcel ID or Tracking Number</label>
+      <div class="input-group">
+        <input class="form-control" id="trackingSearch" placeholder="PKG-4421" required>
+        <button class="btn btn-primary" type="submit">Search</button>
+        <div class="invalid-feedback">Enter a tracking number.</div>
+      </div>
+      <p class="form-message" role="status" aria-live="polite"></p>
+    </form>
+    <div class="track-list">
+      <button class="track-card active" type="button" data-track-parcel="PKG-4421"><strong>PKG-4421</strong><p>Central to Market Street</p><span class="status-badge out-for-delivery">Out for Delivery</span></button>
+      <button class="track-card" type="button" data-track-parcel="PKG-4412"><strong>PKG-4412</strong><p>Warehouse to Elm Avenue</p><span class="status-badge in-transit">In Transit</span></button>
+    </div>
+  </div>
+  <div>
+    <article class="dashboard-card tracking-detail active" data-tracking-detail="PKG-4421">
+      <div class="d-flex flex-wrap justify-content-between gap-2"><h2>PKG-4421</h2><span class="status-badge out-for-delivery">Step 4 Active</span></div>
+      <div class="tracking-timeline">
+        <div class="timeline-item complete"><h3>Booking Confirmed</h3><p>09:05 - Pickup scheduled.</p></div>
+        <div class="timeline-item complete"><h3>Parcel Collected</h3><p>10:12 - Courier collected parcel.</p></div>
+        <div class="timeline-item complete"><h3>At Sorting Hub</h3><p>11:20 - Sorted for final route.</p></div>
+        <div class="timeline-item active"><h3>Out for Delivery</h3><p>12:42 - Courier is nearby.</p></div>
+        <div class="timeline-item"><h3>Delivered</h3><p>Pending completion.</p></div>
+      </div>
+      <p><strong>Delivery agent:</strong> Nia Brooks | <strong>Vehicle:</strong> Van VX-204</p>
+      <div class="tracking-map map-frame"><iframe title="Local delivery map placeholder" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.149%2C51.498%2C-0.068%2C51.528&amp;layer=mapnik"></iframe></div>
+    </article>
+    <article class="dashboard-card tracking-detail" data-tracking-detail="PKG-4412">
+      <div class="d-flex flex-wrap justify-content-between gap-2"><h2>PKG-4412</h2><span class="status-badge in-transit">Step 3 Active</span></div>
+      <div class="tracking-timeline">
+        <div class="timeline-item complete"><h3>Booking Confirmed</h3><p>08:30 - Pickup scheduled.</p></div>
+        <div class="timeline-item complete"><h3>Parcel Collected</h3><p>09:18 - Courier collected parcel.</p></div>
+        <div class="timeline-item active"><h3>At Sorting Hub</h3><p>10:04 - Awaiting final route.</p></div>
+        <div class="timeline-item"><h3>Out for Delivery</h3><p>Pending route assignment.</p></div>
+        <div class="timeline-item"><h3>Delivered</h3><p>Pending completion.</p></div>
+      </div>
+      <p><strong>Delivery agent:</strong> Theo Morgan | <strong>Vehicle:</strong> Bike BK-118</p>
+      <div class="tracking-map map-frame"><iframe title="Local delivery map placeholder" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.149%2C51.498%2C-0.068%2C51.528&amp;layer=mapnik"></iframe></div>
+    </article>
+  </div>
+</section>
+    </main>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

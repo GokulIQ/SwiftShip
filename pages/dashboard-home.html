@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SwiftShip dashboard home with shipment summaries, active tracking, recent shipments, profile, invoices, addresses, messages, and settings placeholders.">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Dashboard Home | SwiftShip Customer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Playfair+Display:wght@700;800;900&amp;display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/dark-mode.css" rel="stylesheet">
+  <link href="../assets/css/rtl.css" rel="stylesheet">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128230;</text></svg>">
+</head>
+<body class="dashboard-page">
+<div class="skeleton-screen" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+</div>
+<div class="dashboard-shell">
+
+  <aside class="dashboard-sidebar" id="dashboardSidebar" aria-label="Customer dashboard">
+    <div class="dashboard-sidebar-head">
+      <a class="brand-mark dashboard-brand" href="dashboard-home.html">
+        <span class="brand-icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></span>
+        <span>SwiftShip</span>
+      </a>
+      <button class="sidebar-close-button" type="button" data-dashboard-menu aria-label="Close sidebar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <nav>
+      <a class="active" href="dashboard-home.html"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i><span>Home</span></a><a class="" href="dashboard-home.html#profile-management"><i class="fa-solid fa-user-gear" aria-hidden="true"></i><span>Profile Management</span></a><a class="" href="dashboard-book.html"><i class="fa-solid fa-calendar-plus" aria-hidden="true"></i><span>Book Pickup</span></a><a class="" href="dashboard-track.html"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Active Tracking</span></a><a class="" href="dashboard-history.html"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i><span>Shipment History</span></a><a class="" href="dashboard-history.html#invoice-history"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i><span>Invoice History</span></a><a class="" href="dashboard-home.html#saved-addresses"><i class="fa-solid fa-address-book" aria-hidden="true"></i><span>Saved Addresses</span></a><a class="" href="dashboard-home.html#messages"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Messages</span></a><a class="" href="dashboard-home.html#settings"><i class="fa-solid fa-sliders" aria-hidden="true"></i><span>Settings</span></a><a class="" href="login.html"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i><span>Logout</span></a>
+    </nav>
+  </aside>
+  <div class="dashboard-content">
+    <header class="dashboard-topbar">
+      <button class="sidebar-toggle-button dashboard-menu-toggle" type="button" data-dashboard-menu aria-controls="dashboardSidebar" aria-expanded="false" aria-label="Toggle sidebar"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      <div>
+        <p class="eyebrow">Customer Dashboard</p>
+        <strong>Account #CUST-2087</strong>
+      </div>
+      <div class="dashboard-actions">
+        <button class="icon-action" type="button" data-theme-toggle aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i><span>Dark</span></button>
+        <button class="icon-action" type="button" data-rtl-toggle aria-label="Switch text direction"><i class="fa-solid fa-align-right" aria-hidden="true"></i><span>RTL</span></button>
+        <div class="notification-menu" data-notification-menu>
+          <button class="topbar-icon-button" type="button" data-notification-toggle aria-label="Notifications" aria-expanded="false" aria-haspopup="true"><i class="fa-solid fa-bell" aria-hidden="true"></i><span class="notification-dot"></span></button>
+          <div class="notification-dropdown" data-notification-dropdown>
+            <div class="notification-head"><strong>Notifications</strong><span>3 new</span></div>
+            <a href="dashboard-track.html"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i><span><strong>PKG-4421 is out for delivery</strong><small>ETA today at 16:30</small></span></a>
+            <a href="dashboard-book.html"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span><strong>Pickup reminder</strong><small>Express pickup window opens at 15:00</small></span></a>
+            <a href="dashboard-history.html"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i><span><strong>Invoice ready</strong><small>Review your latest delivery receipt</small></span></a>
+          </div>
+        </div>
+        <div class="profile-menu" data-profile-menu>
+          <button class="profile-toggle" type="button" data-profile-toggle aria-expanded="false" aria-haspopup="true">
+            <span class="profile-avatar" data-profile-avatar>JC</span>
+            <span class="profile-copy"><strong data-profile-menu-name>Jordan Carter</strong><small data-profile-menu-role>Customer</small></span>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="profile-dropdown" data-profile-dropdown>
+            <a href="dashboard-home.html#profile-management"><i class="fa-solid fa-user" aria-hidden="true"></i><span>Profile</span></a>
+            <a href="dashboard-home.html#settings"><i class="fa-solid fa-gear" aria-hidden="true"></i><span>Settings</span></a>
+            <a class="profile-logout" href="login.html" data-profile-logout><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i><span>Logout</span></a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main id="main" class="dashboard-main">
+
+<section class="dashboard-home-hero">
+  <div>
+    <p class="eyebrow">Welcome back</p>
+    <h1 data-customer-name>Hello, Jordan Carter</h1>
+    <p class="lead-muted" data-customer-summary>Here is your local delivery activity for this static demo account.</p>
+  </div>
+  <div class="dashboard-hero-actions" aria-label="Dashboard shortcuts">
+    <a class="btn btn-primary" href="dashboard-book.html"><i class="fa-solid fa-calendar-plus" aria-hidden="true"></i> Book Pickup</a>
+    <a class="btn btn-outline-primary" href="dashboard-track.html"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Track Parcel</a>
+  </div>
+</section>
+
+<section class="dashboard-metrics" aria-label="Shipment summary">
+  <article class="metric-card"><span><i class="fa-solid fa-route" aria-hidden="true"></i></span><div><strong>4</strong><p>Active shipments</p></div></article>
+  <article class="metric-card"><span><i class="fa-solid fa-circle-check" aria-hidden="true"></i></span><div><strong>18</strong><p>Delivered this month</p></div></article>
+  <article class="metric-card"><span><i class="fa-solid fa-clock" aria-hidden="true"></i></span><div><strong>2</strong><p>Pending pickups</p></div></article>
+  <article class="metric-card"><span><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i></span><div><strong>&#8377;42</strong><p>Unpaid invoices</p></div></article>
+</section>
+
+<div class="dashboard-home-layout">
+  <div class="dashboard-main-column">
+    <section class="dashboard-card priority-card">
+      <div class="dashboard-section-head">
+        <div>
+          <p class="eyebrow">Priority shipment</p>
+          <h2>Parcel #PKG-4421</h2>
+        </div>
+        <span class="status-badge out-for-delivery">Out for Delivery</span>
+      </div>
+      <div class="route-summary" aria-label="Current shipment route">
+        <div><span>Pickup</span><strong>24 Parcel Yard</strong><p>Central Delivery District</p></div>
+        <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+        <div><span>Drop-off</span><strong>88 Market Street</strong><p>Arriving today</p></div>
+      </div>
+      <div class="progress-steps" aria-label="Five step shipment progress"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>
+      <div class="shipment-meta">
+        <span><i class="fa-solid fa-clock" aria-hidden="true"></i> ETA 16:30</span>
+        <span><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Express service</span>
+        <span><i class="fa-solid fa-weight-hanging" aria-hidden="true"></i> 3.2 kg</span>
+      </div>
+      <a class="btn btn-outline-primary" href="dashboard-track.html"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> View Tracking</a>
+    </section>
+
+    <section class="dashboard-card shipments-card">
+      <div class="dashboard-section-head">
+        <div>
+          <p class="eyebrow">Recent activity</p>
+          <h2>Shipments</h2>
+        </div>
+        <a class="btn btn-outline-primary btn-sm" href="dashboard-history.html">View History</a>
+      </div>
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead><tr><th>Parcel #</th><th>Route</th><th>Status</th><th>Service</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td><strong>PKG-4421</strong></td><td>Central to Market Street</td><td><span class="status-badge out-for-delivery">Out for Delivery</span></td><td>Express</td><td>&#8377;10.99</td></tr>
+            <tr><td><strong>PKG-4418</strong></td><td>North Shop to Harbour Road</td><td><span class="status-badge delivered">Delivered</span></td><td>Standard</td><td>&#8377;7.99</td></tr>
+            <tr><td><strong>PKG-4412</strong></td><td>Warehouse to Elm Avenue</td><td><span class="status-badge in-transit">In Transit</span></td><td>Standard</td><td>&#8377;12.99</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <aside class="dashboard-side-column" aria-label="Account overview">
+    <section class="dashboard-card profile-card" id="profile-management">
+      <div class="dashboard-section-head">
+        <div>
+          <p class="eyebrow">Account</p>
+          <h2>Profile</h2>
+        </div>
+        <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
+      </div>
+      <dl class="profile-list">
+        <div><dt>Name</dt><dd data-profile-name>Jordan Carter</dd></div>
+        <div><dt>Email</dt><dd data-profile-email>demo@swiftship.test</dd></div>
+        <div><dt>Phone</dt><dd data-profile-phone>+44 20 5555 0188</dd></div>
+      </dl>
+      <p class="lead-muted" data-profile-summary>Update account contact details, default pickup notes, notification preferences, and business account status.</p>
+    </section>
+
+    <section class="dashboard-card address-card" id="saved-addresses">
+      <div class="dashboard-section-head">
+        <div>
+          <p class="eyebrow">Default pickup</p>
+          <h2>Saved Address</h2>
+        </div>
+        <i class="fa-solid fa-address-book" aria-hidden="true"></i>
+      </div>
+      <p data-saved-address-summary>24 Parcel Yard, Central Delivery District</p>
+      <a class="btn btn-outline-primary btn-sm" href="dashboard-book.html">Use for Booking</a>
+    </section>
+
+  </aside>
+</div>
+
+<section class="dashboard-tools" aria-label="Dashboard tools">
+  <article class="dashboard-card" id="invoice-history"><i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i><h2>Invoices</h2><p>Review delivery charges and payment status.</p></article>
+  <article class="dashboard-card" id="messages"><i class="fa-solid fa-envelope" aria-hidden="true"></i><h2>Messages</h2><p>Courier notes, support updates, and delivery alerts.</p></article>
+  <article class="dashboard-card" id="settings"><i class="fa-solid fa-sliders" aria-hidden="true"></i><h2>Settings</h2><p>Theme, direction, notifications, and account preferences.</p></article>
+  <article class="dashboard-card"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><h2>Tracking</h2><p>Follow booking, collection, transit, and delivery stages.</p></article>
+</section>
+    </main>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
+
