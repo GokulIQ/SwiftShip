@@ -1,4 +1,4 @@
-﻿// Shared public-site interactions: theme, RTL, validation, filters, and timers.
+// Shared public-site interactions: theme, RTL, validation, filters, and timers.
 (() => {
   const root = document.documentElement;
   const themeKey = 'swiftship-theme';
@@ -589,5 +589,39 @@
     updateCountdown();
     window.setInterval(updateCountdown, 1000);
   }
-})();
 
+  const checkNavAuthState = () => {
+    const user = localStorage.getItem(currentUserKey);
+    const admin = localStorage.getItem(currentAdminKey);
+    const signInBtn = document.querySelector('.nav-actions .btn-primary');
+    const navLinks = document.querySelectorAll('.nav-item .nav-link');
+    
+    let dashboardLink = null;
+    navLinks.forEach(link => {
+      if (link.textContent.trim() === 'Dashboard') {
+        dashboardLink = link;
+      }
+    });
+
+    if (user || admin) {
+      if (signInBtn) signInBtn.style.display = 'none';
+      if (dashboardLink) {
+         if (dashboardLink.parentElement && dashboardLink.parentElement.tagName === 'LI') {
+             dashboardLink.parentElement.style.display = 'block';
+         } else {
+             dashboardLink.style.display = 'block';
+         }
+      }
+    } else {
+      if (signInBtn) signInBtn.style.display = 'inline-flex';
+      if (dashboardLink) {
+         if (dashboardLink.parentElement && dashboardLink.parentElement.tagName === 'LI') {
+             dashboardLink.parentElement.style.display = 'none';
+         } else {
+             dashboardLink.style.display = 'none';
+         }
+      }
+    }
+  };
+  checkNavAuthState();
+})();
