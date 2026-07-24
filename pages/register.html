@@ -23,33 +23,14 @@
   <a class="skip-link" href="#main">Skip to content</a>
 <main id="main">
 
-<section class="login-screen">
-  <div class="container">
-    <div class="login-panel register-panel">
-      <div class="login-showcase">
-        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&amp;fit=crop&amp;w=1600&amp;q=80&amp;fm=webp" alt="Courier parcels arranged for new customer registration">
-        <div class="login-showcase-content">
-          <span class="login-badge"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> New customer account</span>
-          <h1>Save pickup details for faster bookings.</h1>
-          <p>Create a SwiftShip profile once, then reuse your contact, address, and delivery preferences every time you ship.</p>
-          <ul class="login-benefits">
-            <li><i class="fa-solid fa-address-card" aria-hidden="true"></i> Store sender contact details</li>
-            <li><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Keep a default pickup address</li>
-            <li><i class="fa-solid fa-boxes-packing" aria-hidden="true"></i> Move straight into booking parcels</li>
-          </ul>
-        </div>
-        <div class="login-tracking-preview" aria-label="Account setup summary">
-          <div>
-            <span class="badge-soft">Account setup</span>
-            <h2>3 steps</h2>
-            <p>Contact details, pickup address, and secure access.</p>
-          </div>
-          <div class="progress-steps" aria-hidden="true"><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span></div>
-        </div>
-      </div>
-      <div class="login-form-area">
-        <form class="auth-card login-card register-card needs-validation" data-auth-form="register" data-static-form data-redirect="dashboard-home.html" data-success-message="Account saved locally. Loading your dashboard..." novalidate>
+<section class="login-screen d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+  <div class="container d-flex justify-content-center">
+    <div class="login-form-area w-100" style="max-width: 550px;">
+        <form class="auth-card login-card register-card needs-validation" data-auth-form="register" data-static-form data-redirect="login.html" data-success-message="Registration successful. Redirecting to login..." novalidate>
           <div class="login-card-header">
+            <a class="d-inline-block mb-3 text-decoration-none text-center w-100" href="index.html">
+              <span class="fs-4 fw-bold" style="color: var(--color-primary);"><i class="fa-solid fa-truck-fast"></i> SwiftShip</span>
+            </a>
             <span class="login-icon"><i class="fa-solid fa-user-check" aria-hidden="true"></i></span>
             <p class="eyebrow">Create account</p>
             <h2>Register</h2>

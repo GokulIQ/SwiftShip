@@ -784,8 +784,12 @@ dd {
 
 .quote-panel h2,
 .quote-panel p,
+.quote-panel label,
+.quote-panel .eyebrow,
 .cta-band h2,
-.cta-band p {
+.cta-band p,
+.cta-band label,
+.cta-band .eyebrow {
   color: #fff;
 }
 
@@ -2586,10 +2590,20 @@ dd {
   }
 
   .dashboard-title,
-  .dashboard-home-hero,
-  .dashboard-topbar {
+  .dashboard-home-hero {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .dashboard-topbar {
+    flex-wrap: wrap;
+    padding: 16px;
+  }
+
+  .dashboard-topbar > div:not(.dashboard-actions) {
+    order: 3;
+    width: 100%;
+    margin-top: 16px;
   }
 
   .dashboard-hero-actions,
@@ -2606,13 +2620,17 @@ dd {
   }
 
   .dashboard-actions {
-    margin-left: 0;
+    flex: 1;
+    justify-content: flex-end;
   }
 
   .profile-menu {
-    width: 100%;
+    width: auto;
   }
 
+  .profile-copy {
+    display: none;
+  }
   .notification-menu {
     position: static;
   }
